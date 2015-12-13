@@ -182,7 +182,7 @@
     }
 
     function pseudoElementWonVisible(){
-        var urlWon = '/src/img/youwon.png',
+        var urlWon = 'http://dbimok85.github.io/gunman/src/img/youwon.png',
         elementStyleAfter = pseudoElementAfterFind();
         elementStyleAfter[0].style.visibility = 'visible';
         elementStyleAfter[0].style.backgroundImage =  'url(' + urlWon +')';
@@ -196,7 +196,7 @@
     }
 
     function pseudoElementLostVisible(){
-        var urlLose = '/src/img/youlost.png',
+        var urlLose = 'http://dbimok85.github.io/gunman/src/img/youlost.png',
         elementStyleAfter = pseudoElementAfterFind();
         elementStyleAfter[0].style.visibility = 'visible';
         elementStyleAfter[0].style.background = 'url(' + urlLose + ')';
@@ -466,9 +466,9 @@
         //var count = man;
         console.log('HatAnimate ' + man);
         console.log('level' +level);
-        var whiteHat = '/src/img/whitehat.png',
-            brownHat = '/src/img/brownhat.png',
-            redHat = '/src/img/redhat.png';
+        var whiteHat = 'http://dbimok85.github.io/gunman/src/img/whitehat.png',
+            brownHat = 'http://dbimok85.github.io/gunman/src/img/brownhat.png',
+            redHat = 'http://dbimok85.github.io/gunman/src/img/redhat.png';
         displayHat.style.animation = 'bounce 2.5s';
         displayHat.style.animationIterationCount = 'infinite';
         displayHat.style.visibility = 'visible';
@@ -506,7 +506,7 @@
         modal.style.visibility = 'visible';
         //modal.style.transition = '2s';
         //modal.style.opacity = '0.8';
-        displayImg.src = '/src/img/gameover.png';
+        displayImg.src = 'http://dbimok85.github.io/gunman/src/img/gameover.png';
         gunTime = 0;
         total = 0;
         lives = 3;

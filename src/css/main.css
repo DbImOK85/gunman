@@ -180,7 +180,7 @@
 }
 
 .display__gunman{
-    background: url('/src/img/6.png');
+    background: url('http://dbimok85.github.io/gunman/src/img/6.png');
     background-position-x: 0px;
     background-position-y: 0px;
     position: absolute;
@@ -193,7 +193,7 @@
 
 .display__gunman:before{
     display: block;
-    background: url('/src/img/fire-left.png');
+    background: url('http://dbimok85.github.io/gunman/src/img/fire-left.png');
     content: '';
     position: relative;
     top: -50px;
@@ -361,19 +361,19 @@
 @keyframes goal {
     0%
     {
-        background-image: url('/src/img/game_new2.png');
+        background-image: url('http://dbimok85.github.io/gunman/src/img/game_new2.png');
 
     }
     33%
     {
 
-        background-image: url('/src/img/game_new3.png');
+        background-image: url('http://dbimok85.github.io/gunman/src/img/game_new3.png');
 
     }
     66%
     {
 
-        background-image: url('/src/img/game_new4.png');
+        background-image: url('http://dbimok85.github.io/gunman/src/img/game_new4.png');
 
     }
     /*100%*/
@@ -388,7 +388,7 @@
     visibility: hidden;
     display: block;
     position: absolute;
-    background: url('/src/img/brownhat.png');
+    background: url('http://dbimok85.github.io/gunman/src/img/brownhat.png');
     width: 88px;
     height: 47px;
     left: 460px;
