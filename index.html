@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GunMan</title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="shortcut icon" href="src/img/icon.png">
+</head>
+<body>
+    <div class="container">
+        <div id="openModal" class="modal">
+            <div>
+                <img src="src/img/title.png" alt="Game name" class="modal__img">
+                <button type="button" class="modal__btn" id="btn">
+                    <i class=""></i> Start new Game
+                </button>
+            </div>
+        </div>
+        <div class="display">
+            <div id="looseModal" class="display__modal">
+                <div>
+
+                </div>
+            </div>
+            <div class="display__timer_name">
+                <p class="display__timer_you">time.you</p>
+                <p class="display__timer_gunman">gunman</p>
+            </div>
+            <div class="display__timer">
+                <p class="display__timer you__time">0.0</p>
+                <p class="display__timer gunman__time">0.0</p>
+            </div>
+            <div class="display__bonus">
+              <p class="display__bonus_text">bonus</p>
+              <span class="display__bonus_number">00000</span>
+            </div>
+            <div class="display__hat"></div>
+            <div class="display__gunman"></div>
+            <div class="display__footer">
+                <div class="footer__score">
+                    <span class="footer__score_number">00000</span>
+                    <span class="footer__score_text">score</span>
+                </div>
+                <div class="footer__lives">
+                    <span class="footer__lives_win">win:</span><span class="win__number ">0</span>
+                    <span class="footer__lives_live">lives:</span><span class="live__number">3</span>
+                </div>
+                <div class="footer__reward">
+                    <span class="footer__reward_score ">$</span><span class="reward__number ">2800</span>
+                    <span class="footer__reward_number">reward</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="src/js/main.js"></script>
+</body>
+</html>

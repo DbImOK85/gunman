@@ -1,0 +1,411 @@
+@import url(https://fonts.googleapis.com/css?family=Audiowide);
+/*@import url(https://fonts.googleapis.com/css?family=Press+Start+2P);*/
+
+
+.container{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Audiowide, Arial, Helvetica, sans-serif;
+}
+
+
+.display{
+    background: url('http://dbimok85.github.io/gunman/src/img/game_new.png');
+    width: 960px;
+    height: 640px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+
+.display__timer{
+    color: darkgreen;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 0 auto;
+    padding: 5px;
+    display: inline-block;
+    width: 250px;
+
+}
+    
+.display__timer_name{
+    color: darkgreen;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bolder;
+    margin: 0 auto;
+    padding: 5px 5px 5px 300px;
+    display: inline-block;
+    width: 250px;
+}
+
+.display__timer_you, .display__timer_gunman{
+    border: 2px solid darkgreen;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: center;
+}
+
+
+
+.you__time, .gunman__time{
+    padding: 5px;
+
+}
+
+
+
+.modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.9);
+    z-index: 999;
+    /*transition: opacity 2s ease-out;*/
+    /*transition: hidden 2000ms ease-in-out;*/
+    /*-webkit-transition: hidden 2000ms ease-in-out;*/
+    /*-moz-transition: hidden 400ms ease-in-out;*/
+    /*transition: hidden 400ms ease-in-out;*/
+    /*visibility: hidden;*/
+
+}
+
+.modal > div {
+    text-align: center;
+    line-height: 40;
+}
+
+.modal__btn{
+    top: -125px;
+    text-transform: uppercase;
+    font-family: Audiowide,Arial, Helvetica, sans-serif;
+    text-align: center;
+    position: relative;
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    -moz-box-shadow: 1px 1px 3px #000;
+    -webkit-box-shadow: 1px 1px 3px #000;
+    box-shadow: 1px 1px 3px #000;
+}
+
+.modal__img{
+    position: relative;
+    margin: 0 auto;
+    display: block;
+    top: 100px;
+}
+
+.display__modal{
+    position: absolute;
+    top: 105px;
+    right: 0;
+    bottom: 104px;
+    left: 0;
+    background: rgba(255,0,0,0.5);
+    z-index: 999;
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    display: none;
+}
+
+
+
+.display__footer{
+    position: absolute;
+    color: darkgreen;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: bolder;
+    margin: 0 auto;
+    top: 550px;
+    width: inherit;
+
+}
+
+.footer__score{
+    display: inline-block;
+    width: 100px;
+    margin: 0 50px;
+}
+
+.footer__score_number{
+    color: white;
+    letter-spacing: 2px;
+
+}
+
+.footer__lives{
+    display: inline-block;
+    width: 160px;
+    margin: 0 50px;
+}
+
+.footer__reward{
+    display: inline-block;
+    width: 100px;
+    margin: 0 50px;
+}
+
+.footer__reward_score{
+    color: white;
+}
+
+.reward__number{
+    padding: 0 10px;
+}
+
+.win__number{
+    display: inline-block;
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+.live__number{
+    display: inline-block;
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+.display__gunman{
+    background: url('/src/img/6.png');
+    background-position-x: 0px;
+    background-position-y: 0px;
+    position: absolute;
+    width: 90px;
+    height: 180px;
+    top: 300px;
+    left: 960px;
+    visibility: hidden;
+}
+
+.display__gunman:before{
+    display: block;
+    background: url('/src/img/fire-left.png');
+    content: '';
+    position: relative;
+    top: -50px;
+    right: 50px;
+    width: 116px;
+    height: 68px;
+    visibility: hidden;
+}
+
+
+.display__gunman:after{
+    display: block;
+    /*background: url('/src/img/youwon.png');*/
+    content: '';
+    position: relative;
+    top: -120px;
+    left: 0;
+    width: 116px;
+    height: 68px;
+    visibility: hidden;
+}
+
+.display__bonus{
+  position: fixed;
+  text-align: center;
+  padding: 10px 0px;
+  width: 250px;
+  left: 550px;
+  top: 150px;
+  background-color: #ffffff;
+  border: 5px solid #000000;
+  border-radius: 50px;
+  font-weight: bolder;
+  font-size: 20px;
+  display: none;
+  margin: 0 auto;
+}
+
+.display__bonus_text{
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+
+.gunman__move{
+    left: 450px;
+    transition: left 5s linear;
+}
+
+@keyframes walk {
+
+    0%
+    {
+        background-position: 0 0;
+    }
+    33%
+    {
+        background-position: -90px 0;
+    }
+    66%
+    {
+        background-position: -180px 0;
+    }
+}
+
+.gunman__move{
+    animation: walk 0.5s step-start;
+    animation-iteration-count: infinite;
+}
+
+.gunman__stay{
+    left: 450px;
+    background-position: -270px 0;
+}
+
+.gunman__ready{
+    left: 450px;
+    background-position: -270px 0;
+}
+
+@keyframes shot {
+
+    from
+    {
+        background-position: -825px 0;
+    }
+
+    to
+    {
+        background-position: -550px 0;
+    }
+}
+
+.gunman__shot{
+    animation: shot 2s step-start;
+    animation-iteration-count: 1;
+}
+
+@keyframes drops {
+
+    50%
+    {
+        background-position: -922px 0;
+    }
+    100%
+    {
+        background-position: -1012px 0;
+    }
+
+}
+
+.gunman__drops{
+    animation: drops 2s step-start;
+    animation-iteration-count: 1;
+}
+
+.gunman__dead{
+    left: 450px;
+    background-position: -1012px 0;
+}
+
+@keyframes kill {
+
+    50%
+    {
+        background-position: -740px 0;
+    }
+    100%
+    {
+        background-position: -645px 0;
+    }
+
+}
+
+.gunman__kill{
+    animation: kill 0.5s step-start;
+    animation-iteration-count: 5;
+}
+
+
+.gunman__hides_gun{
+    background-position: -825px 0;
+}
+
+@keyframes leave {
+
+    50%
+    {
+        background-position: -360px 0;
+    }
+    100%
+    {
+        background-position: -458px 0;
+    }
+
+}
+
+.gunman__leave{
+    animation: leave 0.5s step-start;
+    animation-iteration-count: infinite;
+    transition: left 5s linear;
+    left: 960px;
+}
+
+@keyframes goal {
+    0%
+    {
+        background-image: url('/src/img/game_new2.png');
+
+    }
+    33%
+    {
+
+        background-image: url('/src/img/game_new3.png');
+
+    }
+    66%
+    {
+
+        background-image: url('/src/img/game_new4.png');
+
+    }
+    /*100%*/
+    /*{*/
+        /*background-image: url('/src/img/game_new4.png');*/
+
+    /*}*/
+}
+
+
+.display__hat{
+    visibility: hidden;
+    display: block;
+    position: absolute;
+    background: url('/src/img/brownhat.png');
+    width: 88px;
+    height: 47px;
+    left: 460px;
+    top: 300px;
+    /*animation: bounce 2.5s;*/
+    /*animation-iteration-count: infinite;*/
+}
+
+
+@keyframes bounce {
+    0%{-webkit-transform: translateY(0px);}
+    10%{-webkit-transform: translateY(-150px);}
+    30% {-webkit-transform: translateY(-130px);}
+    50% {-webkit-transform: translateY(-150px);}
+    60% {-webkit-transform: translateY(100px);}
+    70% {-webkit-transform: translateY(60px);}
+    100% {-webkit-transform: translateY(100px);}
+}
+
+
