@@ -40,7 +40,6 @@
 
     function startNewGame(){
         console.log(level);
-
         sfxIntro.play();
         clearModal();
         gunman.classList.add('gunman__move');
@@ -359,10 +358,9 @@
       console.log('Totalscore: ' + total);
       displayWin.innerHTML = win + '';
       sfxWin.play();
-      level += 1;
+      level ++;
         hatAnimate();
           setTimeout(function(){
-
              pseudoElementWonVisible();
             displayBonusVisible();
           }, 1000);
@@ -371,9 +369,7 @@
               displayRewardNumber.innerHTML = Reward + '';
               mainDisplay.style.animation = '';
               mainDisplay.style.animationIterationCount = '';
-
               hatAnimateDisable();
-
               pseudoElementWonHidden();
               resetCountBonus();
               resetGunman();
@@ -396,7 +392,6 @@
     function gunmanShot(){
       var lives = countLives();
       if (lives != 0){
-
         gunman.classList.add('gunman__kill');
         gunman.classList.add('gunman__hides_gun');
         displayModal.style.display = 'block';
@@ -468,32 +463,64 @@
         console.log('level' +level);
         var whiteHat = 'http://dbimok85.github.io/gunman/src/img/whitehat.png',
             brownHat = 'http://dbimok85.github.io/gunman/src/img/brownhat.png',
-            redHat = 'http://dbimok85.github.io/gunman/src/img/redhat.png';
+            redHat = 'http://dbimok85.github.io/gunman/src/img/redhat.png',
+            blackHat = 'http://dbimok85.github.io/gunman/src/img/blackhat.png';
         displayHat.style.animation = 'bounce 2.5s';
         displayHat.style.animationIterationCount = 'infinite';
         displayHat.style.visibility = 'visible';
 
-        if(level == 2 || man == 1){
+        if(level === 2 || man == 1){
             displayHat.style.backgroundImage = 'url('+ brownHat +')';
             //displayHat.style.visibility = 'visible';
         }
-        if(level == 3 || man == 2){
+        if(level === 3 || man === 2){
             displayHat.style.visibility = 'hidden';
         }
-        if(level == 4 || man == 3){
-            displayHat.style.visibility = 'hidden';
+        if(level === 4 || man === 3){
+            flyHat();
+            //displayHat.style.visibility = '';
+            displayHat.style.backgroundImage = 'url('+ blackHat +')';
         }
-        if (level == 5 || man == 4){
+        if (level === 5 || man == 4){
             displayHat.style.backgroundImage = 'url('+ whiteHat +')';
             //displayHat.style.visibility = 'visible';
         }
-        if (level == 6 || man == 5){
+        if (level === 6 || man == 5){
             displayHat.style.backgroundImage = 'url('+ redHat +')';
             //displayHat.style.visibility = 'visible';
         }
     }
 
+    function flyHat(){
+        var x0, y0, alpha, x, y, i;
+        x0 = +getComputedStyle(displayHat).left.replace(/[^-0-9]/gim,'');
+        y0 = +getComputedStyle(displayHat).top.replace(/[^-0-9]/gim,'');
+        var start = Date.now();
+        var timer = setInterval(function() {
+            x0 += 13.5;
+            var sin = Math.sin(x0 * Math.PI / 180 - 8);
+            y = y0 - 250  * sin;
+            var timePassed = Date.now() - start;
+            displayHat.style.left = x0 + 'px';
+            displayHat.style.top = y + 'px';
+            if (timePassed > 2000 && y >= 300) clearInterval(timer);
+            console.log('x0: ' + x0);
+            console.log('sin:' + sin);
+            console.log('y:' + y);
+        }, 100);
+        //
+        //displayHat.style.top = y;
+        //displayHat.style.left = x;
+
+        displayHat.style.animation = '';
+        displayHat.style.animationIterationCount = '';
+
+    }
+
+
     function hatAnimateDisable(){
+        displayHat.style.left = '460px';
+        displayHat.style.top = '300px';
         displayHat.style.visibility = 'hidden';
         displayHat.style.animation = '';
         displayHat.style.animationIterationCount = '';
