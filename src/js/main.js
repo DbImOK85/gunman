@@ -468,7 +468,8 @@
         console.log('level' +level);
         var whiteHat = 'http://dbimok85.github.io/gunman/src/img/whitehat.png',
             brownHat = 'http://dbimok85.github.io/gunman/src/img/brownhat.png',
-            redHat = 'http://dbimok85.github.io/gunman/src/img/redhat.png';
+            redHat = 'http://dbimok85.github.io/gunman/src/img/redhat.png',
+            blackHat = 'http://dbimok85.github.io/gunman/src/img/blackhat.png';
         displayHat.style.animation = 'bounce 2.5s';
         displayHat.style.animationIterationCount = 'infinite';
         displayHat.style.visibility = 'visible';
@@ -477,11 +478,13 @@
             displayHat.style.backgroundImage = 'url('+ brownHat +')';
             //displayHat.style.visibility = 'visible';
         }
-        if(level == 3 || man == 2){
+        if(level === 3 || man === 2){
             displayHat.style.visibility = 'hidden';
         }
-        if(level == 4 || man == 3){
-            displayHat.style.visibility = 'hidden';
+        if(level === 4 || man === 3){
+            flyHat();
+            //displayHat.style.visibility = '';
+            displayHat.style.backgroundImage = 'url('+ blackHat +')';
         }
         if (level == 5 || man == 4){
             displayHat.style.backgroundImage = 'url('+ whiteHat +')';
@@ -491,6 +494,37 @@
             displayHat.style.backgroundImage = 'url('+ redHat +')';
             //displayHat.style.visibility = 'visible';
         }
+    }
+
+    function flyHat(){
+        var x0, y0, alpha, x, y, i;
+        x0 = +getComputedStyle(displayHat).left.replace(/[^-0-9]/gim,'');
+        y0 = +getComputedStyle(displayHat).top.replace(/[^-0-9]/gim,'');
+        var start = Date.now();
+        var timer = setInterval(function() {
+            x0 += 13.5;
+            var sin = Math.sin(x0 * Math.PI / 180 - 8);
+            y = y0 - 250  * sin;
+            var timePassed = Date.now() - start;
+            displayHat.style.left = x0 + 'px';
+            displayHat.style.top = y + 'px';
+            if (timePassed > 2000 && y >= 300) clearInterval(timer);
+            console.log('x0: ' + x0);
+            console.log('sin:' + sin);
+            console.log('y:' + y);
+        }, 100);
+
+
+
+        //
+        //displayHat.style.top = y;
+        //displayHat.style.left = x;
+
+        displayHat.style.animation = '';
+        displayHat.style.animationIterationCount = '';
+
+        
+
     }
 
     function hatAnimateDisable(){
